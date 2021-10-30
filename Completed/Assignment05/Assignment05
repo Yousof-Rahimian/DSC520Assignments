@@ -1,0 +1,41 @@
+# Assignment: ASSIGNMENT 3
+# Name: Rahimian, Yousof
+# Date: 2021-09-17
+
+## Load the ggplot2 package
+library(ggplot2)
+library(readxl)
+theme_set(theme_minimal())
+
+## Set the working directory to the root of your DSC 520 directory
+setwd("C:/Users/Yousof/Desktop/DSC 520/2014 American Community Survay")
+
+## Load the `acs-14-1yr-s0201.csv` to
+read.table("acs-14-1yr-s0201 (1).csv", header = TRUE, sep = ",")
+##create a data frame
+survey_df <- read.table("acs-14-1yr-s0201 (1).csv", header = TRUE, sep = ",")
+theDF <- data.frame(survey_df)
+
+##display 'str()' function
+str(theDF)
+##display 'nrow()' function
+nrow(survey_df)
+##display'ncol()' function
+ncol(survey_df)
+
+##Create a Histogram of the HSDegree variable using the ggplot2 package.
+##Set a bin size for the Histogram.
+##Include a Title and appropriate X/Y axis labels on your Histogram Plot.
+## Title: Measure of HSDegrees
+## X label: HSDegree
+## Y Label: Number of Degrees
+ggplot(survey_df, aes(HSDegree)) + geom_histogram(bins=10) + ggtitle("Measure of HS Degrees") + xlab("HS Degree") + ylab("Number of Degrees")
+
+##Create a Probability Plot of the HSDegree variable.
+x <- c(94.9 : 62.2)
+hist(x)
+qqnorm(x)
+qqline(x)
+
+
+
