@@ -1,0 +1,51 @@
+ASSIGNMENT 4
+Yousof Rahimian
+2021-10-08
+Markdown Basics
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring 
+HTML, PDF, and MS Word documents. For more details on using R Markdown see 
+http://rmarkdown.rstudio.com.
+Favorite Foods
+1. Seafood
+2. Vegetable Beef Soup
+3. Pizza
+Images
+(https://github.com/bellevueuniversity/dsc520/blob/master/completed/assignment04/plots/10-all-cases-log.png)
+Add a Quote
+A quiter never wins and a winner never quites
+Add an Equation
+pressure equation
+𝑃 = 𝐹/𝐴
+Add a Footnote
+This is a footnote
+Add Citations
+• R for Everyone
+– Command Line Interface
+– RStudio
+– Microsoft Visual Studio
+– Conclusion
+• Discovering Statistics Using R
+– Preface
+– Math Version
+– Building Statistical Models
+Inline Code
+NY Times COVID-19 Data
+## R4DS Height vs 
+Earnings 
+Pandoc Table
+Knitr Table with Kable
+One Ring to Rule Them All
+name race in_fellowship ring_bearer age
+Aragon Men TRUE FALSE 88
+Bilbo Hobbit FALSE TRUE 129
+Frodo Hobbit TRUE TRUE 51
+Galadriel Elf FALSE FALSE 7000
+Sam Hobbit TRUE TRUE 36
+Gandalf Maia TRUE TRUE 2019
+Legolas Elf TRUE FALSE 2931
+Sauron Maia FALSE TRUE 7052
+Gollum Hobbit FALSE TRUE 589
+References
+• R for Everyone
+• Discovering Statistics Using R
+• Bellevue University
