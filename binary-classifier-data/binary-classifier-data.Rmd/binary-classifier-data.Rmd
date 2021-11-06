@@ -1,0 +1,43 @@
+---
+title: "Binary-Classifier-Data"
+author: "Rahimian Yousof"
+date: "11/6/2021"
+output:
+  word_document: default
+  html_document: default
+  pdf_document: default
+---
+**Fit a logistic regression model to the binary-classifier-data.csv dataset**
+
+
+## Set the working directory to the root of your DSC 520 directory
+```{r}
+setwd("C:/Users/Yousof/Desktop/DSC 520/week 10")
+```
+
+## load the 'binary-classifier-data.csv' to 
+```{r}
+binary_classifier_data <- read.csv("C:/Users/Yousof/Desktop/DSC 520/week 10/binary-classifier-data.csv")
+```
+
+## Fit a logistic regression model to the binary-classifier-data.csv data set
+```{r}
+binary_classifier_data_glm <- glm(label ~ ., 
+                                  data=binary_classifier_data, family = binomial(link = "logit"))
+binary_classifier_data_glm
+```
+## Create a coefficent plot 
+```{r}
+library(coefplot)
+coefplot(binary_classifier_data_glm)
+```
+
+## Get the summary of 'binary_classifier-data_glm'
+```{r}
+summary(binary_classifier_data_glm)
+```
+
+## Create a plot for binary_classifier_data_glm
+```{r}
+plot(binary_classifier_data_glm)
+```
