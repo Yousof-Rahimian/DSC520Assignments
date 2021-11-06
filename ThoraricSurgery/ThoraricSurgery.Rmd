@@ -1,0 +1,104 @@
+---
+title: "ThoraricSurgery"
+author: "Rahimian Yousof"
+date: "11/6/2021"
+output:
+  pdf_document: default
+  html_document: default
+  word_document: default
+---
+
+* Thoracic surgery data set from the University of California Irvine machine learning repository*
+
+This assignment I will working with the thoracic surgery data set from the University of California Irvine machine learning repository. This dataset contains information on life expectancy in lung cancer patients after surgery. The underlying thoracic surgery data is in ARFF format. . I will  load this data using a forigen package.
+
+
+## Set the working directory to the root of 'DSC 520/week 10'
+```{r}
+setwd("C:/Users/Yousof/Desktop/DSC 520/week 10")
+```
+
+
+
+## Load the data "ThoraricSurgery.arff"
+```{r}
+library(foreign)
+Thoraric_Surgery_Data <- read.arff("ThoraricSurgery.arff")
+```
+
+
+Fit a binary logistic regression model to the data set that predicts whether or not the patient survived for one year (the Risk1Y variable) after the surgery
+
+## Fit a Thoraric_Surgery_Data_glm  linear model for several variables
+```{r}
+Thoraric_Surgery_Data_glm <- glm(Risk1Yr ~ AGE+PRE4+PRE5+PRE6+PRE7+PRE8+PRE9+PRE10+PRE11+PRE14,
+                   data =Thoraric_Surgery_Data, family = binomial(link = "logit"))
+
+Thoraric_Surgery_Data_glm 
+```
+
+
+
+## Get the coefficent plot from Thoraric_Surgery_Data_glm  model
+```{r}
+library(coefplot)
+coefplot(Thoraric_Surgery_Data_glm )
+```
+
+
+## Get summary of Thoraric_Surgery_Data_glm 
+```{r}
+summary(Thoraric_Surgery_Data_glm )
+```
+
+
+*What is the greatest effect on the survival rate?
+*According to the summary, the greatest effect of second model 'Thoraric_Surgery1_Data_glm'  is 'PRE14OC14    1.774358'
+
+
+
+## Create a new model using all variables 'Thoraric_Surgery1_Data_glm' 
+```{r}
+## fit a Thoraric_Surgery1_Data_glm linear model for all variables 
+Thoraric_Surgery1_Data_glm <- glm(Risk1Yr ~ ., 
+                data =Thoraric_Surgery_Data, family = binomial(link = "logit"))
+
+Thoraric_Surgery1_Data_glm 
+```
+ 
+ 
+## Creat a coefficient plot 
+```{r}
+library(coefplot)
+coefplot(Thoraric_Surgery1_Data_glm )
+```
+
+## Get the summary of second model 'Thoraric_Surgery1_Data_glm'
+```{r}
+summary(Thoraric_Surgery1_Data_glm )
+```
+
+
+*What is the greatest effect on the survival rate?
+*According to the summary, the greatest effect of second model'Thoraric_Surgery1_Data_glm'  is 'PRE17T = 9.266'
+   + (Thoraric_Surgery1_Data_glm )
+   + PRE14OC14    1.653e+00  6.094e-01   2.713  0.00668 **
+
+
+## Predict Thoraric_Surgery1_Data_glm  using model
+```{r}
+glm.predict.Risk1Yr <- predict(Thoraric_Surgery1_Data_glm , Thoraric_Surgery_Data, type = 'response')
+head(glm.predict.Risk1Yr)
+glm.predict.Risk1Yr
+```
+
+*0.56996561 this the accuracy of this model Thoraric_Surgery1_Data_glm  
+
+
+## Plot model
+```{r}
+plot(Thoraric_Surgery1_Data_glm)
+head(Thoraric_Surgery1_Data_glm )
+```
+
+
